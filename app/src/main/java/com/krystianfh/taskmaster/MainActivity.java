@@ -13,17 +13,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button myTasks = MainActivity.this.findViewById(R.id.mytasks);
-        myTasks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        Button myTasks = MainActivity.this.findViewById(R.id.mytasks);
+//        myTasks.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
-            }
-        });
-
-        Button addTasks = MainActivity.this.findViewById(R.id.add_tasks);
-        addTasks.setOnClickListener((view) -> {
-            System.out.println("go to add tasks");
-        });
+//        Button addTasks = MainActivity.this.findViewById(R.id.add_tasks);
+//        addTasks.setOnClickListener((view) -> {
+//            System.out.println("go to add tasks");
+//        });
     }
 }
