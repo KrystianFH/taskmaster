@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="154dp"
         android:layout_height="49dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:text="@string/homepage_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +25,7 @@
         android:layout_width="134dp"
         android:layout_height="48dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="99dp"
         android:text="Add Tasks"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,13 +33,14 @@
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.628" />
+        app:layout_constraintVertical_bias="0.26" />
 
     <Button
         android:id="@+id/allTasksButton"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:text="All Tasks"
         app:layout_constraintBottom_toBottomOf="@+id/addTasksButton"
@@ -49,9 +51,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="298dp"
-        android:layout_height="334dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="245dp"
+        android:layout_height="239dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"

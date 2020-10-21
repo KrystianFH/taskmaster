@@ -10,6 +10,12 @@ An Android app that reflects my knowledge of Android Studio and is built upon da
   - Lab SetUp
   - Feature Tasks
     - Homepage
-    ![]()
+
+    <!-- ![Day 1 Homepage](screenshots/lab26homepage.png) -->
+    <img src="screenshots/lab26homepage.png" alt="Day One Homepage Image" width="100" >
+    
     - Add a Task
+   
     - All Tasks
+
+### Class 27 | 10.20.2020
