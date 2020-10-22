@@ -3,30 +3,54 @@ package com.krystianfh.taskmaster;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    // lines 11 through 14 are auto-generated and shouldn't be touched.
+    @Override
+    public void onResume(){
+        super.onResume();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        TextView myTasksHeader = findViewById(R.id.myTasksHeader);
+        String savedUsernameGreeting = String.format("%s's tasks", preferences.getString("savedUsername", "My Tasks"));
+        myTasksHeader.setText(savedUsernameGreeting);
+        SharedPreferences.Editor preferenceEditor = preferences.edit();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences.Editor preferenceEditor = preferences.edit();
+
         findViewById(R.id.task1Button).setOnClickListener((view) -> {
             Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
+            Button task1Button = findViewById(R.id.task1Button);
+            preferenceEditor.putString("taskName", task1Button.getText().toString());
+            preferenceEditor.apply();
             MainActivity.this.startActivity(gotoDetailsPageIntent);
         });
 
         findViewById(R.id.task2Button).setOnClickListener((view) -> {
             Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
+            Button task2Button = findViewById(R.id.task2Button);
+            preferenceEditor.putString("taskName", task2Button.getText().toString());
+            preferenceEditor.apply();
             MainActivity.this.startActivity(gotoDetailsPageIntent);
         });
 
         findViewById(R.id.task3Button).setOnClickListener((view) -> {
             Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
+            Button task3Button = findViewById(R.id.task3Button);
+            preferenceEditor.putString("taskName", task3Button.getText().toString());
+            preferenceEditor.apply();
             MainActivity.this.startActivity(gotoDetailsPageIntent);
         });
 
