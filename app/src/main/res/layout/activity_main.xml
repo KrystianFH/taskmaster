@@ -33,12 +33,12 @@
         app:layout_constraintTop_toBottomOf="@+id/task1Button" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/myTasksHeader"
         android:layout_width="154dp"
         android:layout_height="49dp"
         android:layout_marginTop="30dp"
         android:text="@string/homepage_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -128,6 +128,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toEndOf="@+id/task1Label"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/myTasksHeader" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
