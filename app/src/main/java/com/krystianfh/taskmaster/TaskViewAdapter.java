@@ -20,6 +20,7 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksR
         this.listener = listener;
     }
 
+    // view holder deals with passing the data from java to the fragment
     public static class TasksRemainingViewHolder extends RecyclerView.ViewHolder {
 
         public Task tasks;
@@ -33,7 +34,7 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksR
     }
 
     @NonNull
-    @Override
+    @Override // gets called when a fragment pops into existence
     public TasksRemainingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
 
         View view = LayoutInflater.from(parent.getContext())
@@ -55,7 +56,7 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksR
         public void tasksRemainingListener(Task task);
     }
 
-    @Override
+    @Override // gets called when a fragment has a java class attached to it
     public void onBindViewHolder(@NonNull TasksRemainingViewHolder holder, int position){
         holder.tasks = tasksRemaining.get(position);
 
@@ -68,7 +69,7 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksR
 
     }
 
-    @Override
+    @Override // gets called so it knows how many fragments to put on the screen at once
     public int getItemCount(){
         return tasksRemaining.size();
     }
