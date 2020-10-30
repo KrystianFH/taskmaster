@@ -1,5 +1,6 @@
 package com.krystianfh.taskmaster;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,13 @@ import java.util.ArrayList;
 public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksRemainingViewHolder> {
 
     public ArrayList<Task> tasksRemaining;
+    Context context;
     public OnInteractWithTasksRemainingListener listener;
 
-    public TaskViewAdapter(ArrayList<Task> tasksRemaining, OnInteractWithTasksRemainingListener listener){
+    public TaskViewAdapter(ArrayList<Task> tasksRemaining, Context context){
         this.tasksRemaining = tasksRemaining;
-        this.listener = listener;
+//        this.listener = listener;
+        this.context = context;
     }
 
     // view holder deals with passing the data from java to the fragment
@@ -25,10 +28,16 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksR
 
         public Task tasks;
         public View itemView;
+        TextView textViewName,textViewDescription, textViewState;
+
+
 
         public TasksRemainingViewHolder(@NonNull View itemView){
             super(itemView);
             this.itemView = itemView;
+            this.textViewName = itemView.findViewById(R.id.textViewTaskName);
+            this.textViewDescription = itemView.findViewById(R.id.textViewTaskDescription);
+            this.textViewState = itemView.findViewById(R.id.textViewTaskState);
         }
 
     }
@@ -38,7 +47,7 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksR
     public TasksRemainingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_tasks, parent, false);
+                .inflate(R.layout.task_row, parent, false);
 
         TasksRemainingViewHolder viewHolder = new TasksRemainingViewHolder(view);
 
@@ -59,13 +68,13 @@ public class TaskViewAdapter extends RecyclerView.Adapter<TaskViewAdapter.TasksR
     @Override // gets called when a fragment has a java class attached to it
     public void onBindViewHolder(@NonNull TasksRemainingViewHolder holder, int position){
         holder.tasks = tasksRemaining.get(position);
+        holder.textViewName.setText(tasksRemaining.get(position).taskTitle);
+        holder.textViewDescription.setText(tasksRemaining.get(position).taskDetails);
+        holder.textViewState.setText(tasksRemaining.get(position).taskState);
 
-        TextView taskNameTextView = holder.itemView.findViewById(R.id.taskNameTextView);
-        TextView taskDetailsTextView = holder.itemView.findViewById(R.id.taskDetailTextView);
-        TextView taskState = holder.itemView.findViewById(R.id.taskStateTextView);
-        taskNameTextView.setText(holder.tasks.taskTitle);
-        taskDetailsTextView.setText(holder.tasks.taskDetails);
-        taskState.setText(holder.tasks.taskState);
+//        taskNameTextView.setText(holder.tasks.taskTitle);
+//        taskDetailsTextView.setText(holder.tasks.taskDetails);
+//        taskState.setText(holder.tasks.taskState);
 
     }
 

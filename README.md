@@ -48,3 +48,9 @@ An Android app that reflects my knowledge of Android Studio and is built upon da
       - Created task detail page with title and lorem ipsum description
 
       - <img src="screenshots/27taskdetail.png" alt="Day Two Task Detail Page Image" width="100" >
+
+### Class 28 | 10.29.2020
+- Feature Tasks
+    - Homepage
+      - Use RecyclerView to display task data
+      - <img src="screenshots/28homepage.png" alt="Day Three Home Page Image" width="100" >

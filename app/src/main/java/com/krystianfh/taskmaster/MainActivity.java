@@ -25,19 +25,19 @@ public class MainActivity extends AppCompatActivity implements TaskViewAdapter.O
         myTasksHeader.setText(savedUsernameGreeting);
         SharedPreferences.Editor preferenceEditor = preferences.edit();
 
-        ArrayList<Task> exampleTasks = new ArrayList<Task>();
-
-        Task first = new Task ("first task", "first task details", "new");
-        Task second = new Task ("second task", "second task details", "assigned");
-        Task third = new Task ("third task", "third task details", "completed");
-
-        exampleTasks.add(first);
-        exampleTasks.add(second);
-        exampleTasks.add(third);
-
-        RecyclerView recyclerView = findViewById(R.id.tasksRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new TaskViewAdapter(exampleTasks, this));
+//        ArrayList<Task> tasksRemaining = new ArrayList<Task>();
+//
+//        Task first = new Task ("first task", "first task details", "new");
+//        Task second = new Task ("second task", "second task details", "assigned");
+//        Task third = new Task ("third task", "third task details", "completed");
+//
+//        tasksRemaining.add(first);
+//        tasksRemaining.add(second);
+//        tasksRemaining.add(third);
+//
+//        RecyclerView recyclerView = findViewById(R.id.tasksRecyclerView);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setAdapter(new TaskViewAdapter(tasksRemaining, this));
 
     }
 
@@ -46,44 +46,60 @@ public class MainActivity extends AppCompatActivity implements TaskViewAdapter.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ArrayList<Task> tasksRemaining = new ArrayList<Task>();
+
+        Task first = new Task ("first task", "first task details", "new");
+        Task second = new Task ("second task", "second task details", "assigned");
+        Task third = new Task ("third task", "third task details", "completed");
+
+        tasksRemaining.add(first);
+        tasksRemaining.add(second);
+        tasksRemaining.add(third);
+
+
+        RecyclerView recyclerView = findViewById(R.id.tasksRecyclerView);
+        recyclerView.setAdapter(new TaskViewAdapter(tasksRemaining, this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor preferenceEditor = preferences.edit();
 
-        findViewById(R.id.task1Button).setOnClickListener((view) -> {
-            Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
-            Button task1Button = findViewById(R.id.task1Button);
+//        findViewById(R.id.task1Button).setOnClickListener((view) -> {
+//            Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
+//            Button task1Button = findViewById(R.id.task1Button);
 //            preferenceEditor.putString("taskName", task1Button.getText().toString());
 //            preferenceEditor.apply();
+//
+//            gotoDetailsPageIntent.putExtra("taskTitle", task1Button.getText().toString());
+//            gotoDetailsPageIntent.putExtra("body", task1Button.getText().toString());
+//            gotoDetailsPageIntent.putExtra("state", task1Button.getText().toString());
+//            MainActivity.this.startActivity(gotoDetailsPageIntent);
+//        });
 
-            gotoDetailsPageIntent.putExtra("taskTitle", task1Button.getText().toString());
-            gotoDetailsPageIntent.putExtra("body", task1Button.getText().toString());
-            gotoDetailsPageIntent.putExtra("state", task1Button.getText().toString());
-            MainActivity.this.startActivity(gotoDetailsPageIntent);
-        });
-
-        findViewById(R.id.task2Button).setOnClickListener((view) -> {
-            Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
-            Button task2Button = findViewById(R.id.task2Button);
+//        findViewById(R.id.task2Button).setOnClickListener((view) -> {
+//            Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
+//            Button task2Button = findViewById(R.id.task2Button);
 //            preferenceEditor.putString("taskName", task2Button.getText().toString());
 //            preferenceEditor.apply();
+//
+//            gotoDetailsPageIntent.putExtra("taskTitle", task2Button.getText().toString());
+//            gotoDetailsPageIntent.putExtra("body", task2Button.getText().toString());
+//            gotoDetailsPageIntent.putExtra("state", task2Button.getText().toString());
+//            MainActivity.this.startActivity(gotoDetailsPageIntent);
+//        });
 
-            gotoDetailsPageIntent.putExtra("taskTitle", task2Button.getText().toString());
-            gotoDetailsPageIntent.putExtra("body", task2Button.getText().toString());
-            gotoDetailsPageIntent.putExtra("state", task2Button.getText().toString());
-            MainActivity.this.startActivity(gotoDetailsPageIntent);
-        });
-
-        findViewById(R.id.task3Button).setOnClickListener((view) -> {
-            Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
-            Button task3Button = findViewById(R.id.task3Button);
+//        findViewById(R.id.task3Button).setOnClickListener((view) -> {
+//            Intent gotoDetailsPageIntent = new Intent(MainActivity.this, TaskDetail.class);
+//            Button task3Button = findViewById(R.id.task3Button);
 //            preferenceEditor.putString("taskName", task3Button.getText().toString());
 //            preferenceEditor.apply();
-
-            gotoDetailsPageIntent.putExtra("taskTitle", task3Button.getText().toString());
-            gotoDetailsPageIntent.putExtra("body", task3Button.getText().toString());
-            gotoDetailsPageIntent.putExtra("state", task3Button.getText().toString());
-            MainActivity.this.startActivity(gotoDetailsPageIntent);
-        });
+//
+//            gotoDetailsPageIntent.putExtra("taskTitle", task3Button.getText().toString());
+//            gotoDetailsPageIntent.putExtra("body", task3Button.getText().toString());
+//            gotoDetailsPageIntent.putExtra("state", task3Button.getText().toString());
+//            MainActivity.this.startActivity(gotoDetailsPageIntent);
+//        });
 
         Button goToAddTasksPageButton = MainActivity.this.findViewById(R.id.addTasksButton);
         goToAddTasksPageButton.setOnClickListener((view) -> {
@@ -94,11 +110,11 @@ public class MainActivity extends AppCompatActivity implements TaskViewAdapter.O
 
         });
 
-        Button goToAllTasksPageButton = MainActivity.this.findViewById(R.id.allTasksButton);
-        goToAllTasksPageButton.setOnClickListener((view) -> {
-           Intent goToAllTasksIntent = new Intent(MainActivity.this, recyclerViewGeneric.class);
-           MainActivity.this.startActivity(goToAllTasksIntent);
-        });
+//        Button goToAllTasksPageButton = MainActivity.this.findViewById(R.id.allTasksButton);
+//        goToAllTasksPageButton.setOnClickListener((view) -> {
+//           Intent goToAllTasksIntent = new Intent(MainActivity.this, recyclerViewGeneric.class);
+//           MainActivity.this.startActivity(goToAllTasksIntent);
+//        });
 
         ImageButton goToSettingsButton = findViewById(R.id.goToSettingsPageButton);
         goToSettingsButton.setOnClickListener(new View.OnClickListener() {
